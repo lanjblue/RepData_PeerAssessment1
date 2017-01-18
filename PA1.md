@@ -26,7 +26,7 @@ qplot(stepPerDay$steps,
       col=I("red"))
 ```
 
-![](PA1_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 ### Calculate and report the mean and median of the total number of steps taken per day
 
@@ -51,7 +51,7 @@ ggplot(stepPerInt, aes(x=interval, y=mean_steps)) +
   ggtitle("Average number of steps per interval")
 ```
 
-![](PA1_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 ```r
 dev.off()
@@ -107,7 +107,7 @@ qplot(stepPerDayNew$steps,
       col=I("red"))
 ```
 
-![](PA1_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](figure-html/unnamed-chunk-10-1.png)<!-- -->
 
 ```r
 dev.off()
@@ -148,7 +148,7 @@ stepPerIntPerDaytype <- aggregate(steps ~ interval+daytype, data=newactivity, me
 xyplot(steps~interval | daytype, data=stepPerIntPerDaytype, type="l", layout=c(1,2))
 ```
 
-![](PA1_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+![](figure-html/unnamed-chunk-13-1.png)<!-- -->
 
 Overall weekends show more regular activity throughout the day than on weekdays.
 
