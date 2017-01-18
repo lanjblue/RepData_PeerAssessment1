@@ -64,9 +64,10 @@ dev.off()
 ### Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 ```r
-max_int <- stepPerInt[which.max(stepPerInt$mean_steps),]
+max_int <- stepPerInt[which.max(stepPerInt$mean_steps),]$interval
+max_int_step <- stepPerInt[which.max(stepPerInt$mean_steps),]$mean_steps
 ```
-The 5-minute interval 835 contains the max steps of , on average across all the days contains the maximum number of steps . 
+The 5-minute interval 835 contains the max steps of 206.1698113, on average across all the days contains the maximum number of steps . 
 
 ## Imputing missing values
 
@@ -119,15 +120,15 @@ dev.off()
 ### Calculate and report the mean and median total number of steps taken per day. 
 
 ```r
-stepPerDayMeanNew <- mean(stepPerDayNew$steps, na.rm=TRUE)
+stepPerDayMeanNew <- as.integer(round(mean(stepPerDayNew$steps, na.rm=TRUE)))
 stepPerDayMedianNew <- median(stepPerDayNew$steps, na.rm=TRUE)
 ```
 
 ### Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps? 
 
-The mean of steps taken per day before and after imputation is 10766 and 10765.6393443 respectively. 
+The mean of steps taken per day before and after imputation is 10766 and 10766 respectively. The median of steps taken per day before and after imputation is 10765 and 10762 respectively. 
 
-The median of steps taken per day before and after imputation is 10765 and 10762 respectively. 
+The mean and median were lower after imputation which I replaced NAs with mean value of any given interval. 
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -149,4 +150,5 @@ xyplot(steps~interval | daytype, data=stepPerIntPerDaytype, type="l", layout=c(1
 
 ![](PA1_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
 
-There seems to be more steps taken during weekdays than weekends. 
+Overall weekends show more regular activity throughout the day than on weekdays.
+

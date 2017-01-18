@@ -1,9 +1,5 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+
+# Title: "Reproducible Research: Peer Assessment 1"
 
 ```{r echo=FALSE, include=FALSE}
 library(data.table)
