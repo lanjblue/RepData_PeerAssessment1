@@ -124,4 +124,3 @@ xyplot(steps~interval | daytype, data=stepPerIntPerDaytype, type="l", layout=c(1
 ```
 
 Overall weekends show more regular activity throughout the day than on weekdays.
-
