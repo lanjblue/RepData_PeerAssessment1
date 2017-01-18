@@ -9,7 +9,7 @@ library(lattice)
 options("scipen" = 10)
 
 knitr::opts_chunk$set(
-  fig.path = "images/"
+  fig.path = "figure_html/"
 )
 ```
 
@@ -25,7 +25,7 @@ activity <- fread("activity.csv")
 stepPerDay <- aggregate(steps ~ date, data=activity, sum)
 ```
 ### Make a histogram of the total number of steps taken each day
-```{r histgram_stepPerDay, echo=TRUE}
+```{r echo=TRUE}
 
 qplot(stepPerDay$steps,
       geom="histogram",
@@ -47,7 +47,7 @@ The median of the toal number of steps take per day is `r stepPerDayMedian`.
 ## What is the average daily activity pattern?  
 
 ### Make a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)  
-```{r stepPerInterval, echo=TRUE}
+```{r echo=TRUE}
 
 stepPerInt <- aggregate(steps ~ interval, data=activity, mean)
 names(stepPerInt) <- c("interval","mean_steps")
@@ -88,7 +88,7 @@ newactivity <- subset(newactivity[order(date,interval),],select=keep)
 ```
 
 ### Make a histogram of the total number of steps taken each day. 
-```{r stepPerDayNew, echo=TRUE}
+```{r echo=TRUE}
 stepPerDayNew <- aggregate(steps ~ date, data=newactivity, sum)
 
 qplot(stepPerDayNew$steps,
@@ -122,7 +122,7 @@ newactivity$daytype <- factor((newactivity$weekDay %in% weekdays), levels=c(FALS
 ```
 ### Make a panel plot containing a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). 
 
-```{r stepPerIntervalPerDaytype, echo=TRUE}
+```{r echo=TRUE}
 stepPerIntPerDaytype <- aggregate(steps ~ interval+daytype, data=newactivity, mean)
 
 xyplot(steps~interval | daytype, data=stepPerIntPerDaytype, type="l", layout=c(1,2))
