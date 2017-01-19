@@ -9,7 +9,7 @@ library(lattice)
 options("scipen" = 10)
 
 knitr::opts_chunk$set(
-  fig.path = "figure_html/"
+  fig.path = "figure-html/"
 )
 ```
 
